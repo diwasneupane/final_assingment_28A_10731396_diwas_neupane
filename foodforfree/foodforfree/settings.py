@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'foods.app.FoodsConfig',
+    'admins.apps.AdminsConfig',
+    'accounts.apps.AccountsConfig',
+    'foods.apps.FoodsConfig',
     'bootstrapform',
 
 
