@@ -4,6 +4,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+
+from foods.models import Category
 from .forms import LoginForm
 
 
@@ -59,3 +61,5 @@ def register_user(request):
         'activate_register': 'active'
     }
     return render(request, 'accounts/register.html', context)
+
+

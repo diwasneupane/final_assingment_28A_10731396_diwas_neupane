@@ -31,3 +31,10 @@ def get_category(request):
         'activate_category': 'active'
     }
     return render(request, 'foods/get_category.html', context)
+
+
+def delete_category(request, category_id):
+    category = Category.objects.get(id=category_id)
+    category.delete()
+    messages.add_message(request, messages.SUCCESS, 'Category Deleted Successfully')
+    return redirect('/foods/get_category')
