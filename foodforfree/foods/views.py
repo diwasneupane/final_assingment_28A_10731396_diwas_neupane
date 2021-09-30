@@ -4,6 +4,10 @@ from django.contrib import messages
 from .models import Category, Food
 
 
+def homepage(request):
+    return render(request, 'foods/homepage.html')
+
+
 # Create your views here.
 
 def category_form(request):

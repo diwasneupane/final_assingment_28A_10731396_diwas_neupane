@@ -7,6 +7,8 @@ from django.contrib import messages
 
 from foods.models import Category
 from .forms import LoginForm
+from accounts.auth import unauthenticated_user, admin_only, user_only
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -14,11 +16,13 @@ def homepage(request):
     return render(request, 'accounts/homepage.html')
 
 
+@login_required
 def logout_user(request):
     logout(request)
     return redirect('/login')
 
 
+@unauthenticated_user
 def login_user(request):
     if request.method == "POST":
         form = LoginForm(request.POST)
@@ -44,6 +48,7 @@ def login_user(request):
     return render(request, 'accounts/login.html', context)
 
 
+@unauthenticated_user
 def register_user(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -61,5 +66,3 @@ def register_user(request):
         'activate_register': 'active'
     }
     return render(request, 'accounts/register.html', context)
-
-
