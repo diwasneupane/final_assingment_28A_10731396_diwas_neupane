@@ -1,7 +1,7 @@
-{% extends 'layout.html' %}
+{% extends 'layout-admin.html' %}
 {% load bootstrap %}
 {% block title %}
-    <title>Order Item</title>
+    <title>Add Food</title>
 {% endblock%}
 
 {% block main_content %}
@@ -10,13 +10,13 @@
 <div class="row">
 
     <div class="col-md-6 offset-md-3">
-        <h1 class="text-center">Order Item</h1>
+        <h1 class="text-center">Add New Food</h1>
           {% include 'messages.html'%}
         <div class="card py-2 px-2">
         <form class="form" action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            {{ order_form | bootstrap_horizontal }}
-            <button type="submit" class="btn btn-primary mt-3">Proceed to Payment</button>
+            {{ form_food | bootstrap_horizontal }}
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
         </form>
     </div>
     </div>
@@ -24,13 +24,12 @@
 </div>
 <script>
     var form_fields = document.getElementsByTagName('input')
-    form_fields[1].placeholder = "Enter quantity"
-    form_fields[2].placeholder = "Enter contact no"
-       form_fields[3].placeholder = "Enter contact address"
+    form_fields[1].placeholder = "Enter food name"
+    form_fields[2].placeholder = "Enter food price"
 
 
    for(field in form_fields){
-   form_fields[field].className += 'my-3'
+   form_fields[field].className += ' my-3'
    }
 </script>
 
