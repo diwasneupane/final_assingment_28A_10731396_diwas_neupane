@@ -9,11 +9,17 @@ from foods.models import Category
 from .forms import LoginForm
 from accounts.auth import unauthenticated_user, admin_only, user_only
 from django.contrib.auth.decorators import login_required
+from foods.models import Category, Food, Cart, Order
 
 
 # Create your views here.
 def homepage(request):
-    return render(request, 'accounts/homepage.html')
+    foods = Food.objects.all().order_by('-id')
+    context = {
+        'foods': foods,
+        'activate_food_user': 'active'
+    }
+    return render(request, 'accounts/homepage.html', context)
 
 
 @login_required
@@ -37,7 +43,7 @@ def login_user(request):
                     return redirect('/')
                 elif user.is_staff:
                     login(request, user)
-                    return redirect('/admins')
+                    return redirect('/admins/dashboard')
             else:
                 messages.add_message(request, messages.ERROR, 'Invalid username or password')
                 return render(request, 'accounts/login.html', {'form_login': form})

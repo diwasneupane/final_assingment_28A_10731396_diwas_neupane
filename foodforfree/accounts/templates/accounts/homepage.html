@@ -14,7 +14,7 @@
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas accusamus tempore temporibus rem amet
             laudantium animi optio voluptatum. Natus obcaecati unde porro nostrum ipsam itaque impedit incidunt rem
             quisquam eos!</p>
-        <a href="#" class="btn">order now</a>
+        <a href="#" class="btn">Explore now</a>
     </div>
 
     <div class="image">
@@ -101,85 +101,89 @@
     <h1 class="heading"> most <span>popular</span> foods </h1>
 
     <div class="box-container">
+        {% include 'messages.html' %}
+        {% for i in foods %}
+        <div class="box">
+            <span class="price"> Rs. {{i.food_price}}</span>
+            <img src="/{{i.food_image}}" alt="">
+            <h3>{{i.food_name}}</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <a href="/foods/add_to_cart/{{i.id}}" class="btn "
+               onclick="return confirm('Are you sure want to add this item to cart?')">Order now</a>
+        </div>
 
-        <div class="box">
-            <span class="price"> Rs.250</span>
-            <img src="{% static 'images/p-1.jpg' %}" alt="">
-            <h3>tasty burger</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <a href="#" class="btn">order now</a>
-        </div>
-        <div class="box">
-            <span class="price"> Rs.250</span>
-            <img src="{% static 'images/p-2.jpg' %}" alt="">
-            <h3>tasty cakes</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <a href="#" class="btn">order now</a>
-        </div>
-        <div class="box">
-            <span class="price"> Rs.250</span>
-            <img src="{% static 'images/p-3.jpg' %}" alt="">
-            <h3>tasty sweets</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <a href="#" class="btn">order now</a>
-        </div>
-        <div class="box">
-            <span class="price"> Rs.250</span>
-            <img src="{% static 'images/p-4.jpg' %}" alt="">
-            <h3>tasty cupcakes</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <a href="#" class="btn">order now</a>
-        </div>
-        <div class="box">
-            <span class="price"> Rs.250</span>
-            <img src="{% static 'images/p-5.jpg' %}" alt="">
-            <h3>cold drinks</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <a href="#" class="btn">order now</a>
-        </div>
-        <div class="box">
-            <span class="price"> Rs.250</span>
-            <img src="{% static 'images/p-6.jpg' %}" alt="">
-            <h3>cold ice-cream</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <a href="#" class="btn">order now</a>
-        </div>
+        {% endfor %}
+        <!--        <div class=" box">-->
+        <!--            <span class="price"> Rs.250</span>-->
+        <!--            <img src="{% static 'images/p-2.jpg' %}" alt="">-->
+        <!--            <h3>tasty cakes</h3>-->
+        <!--            <div class="stars">-->
+        <!--                <i class="fas fa-star"></i>-->
+        <!--                <i class="fas fa-star"></i>-->
+        <!--                <i class="fas fa-star"></i>-->
+        <!--                <i class="fas fa-star"></i>-->
+        <!--                <i class="far fa-star"></i>-->
+        <!--            </div>-->
+        <!--            <a href="#" class="btn">order now</a>-->
+        <!--        </div>-->
+        <!--        <div class="box">-->
+        <!--            <span class="price"> Rs.250</span>-->
+        <!--            <img src="{% static 'images/p-3.jpg' %}" alt="">-->
+        <!--            <h3>tasty sweets</h3>-->
+        <!--            <div class="stars">-->
+        <!--                <i class="fas fa-star"></i>-->
+        <!--                <i class="fas fa-star"></i>-->
+        <!--                <i class="fas fa-star"></i>-->
+        <!--                <i class="fas fa-star"></i>-->
+        <!--                <i class="far fa-star"></i>-->
+        <!--            </div>-->
+        <!--            <a href="#" class="btn">order now</a>-->
+        <!--        </div>-->
+        <!--        <div class="box">-->
+        <!--            <span class="price"> Rs.250</span>-->
+        <!--            <img src="{% static 'images/p-4.jpg' %}" alt="">-->
+        <!--            <h3>tasty cupcakes</h3>-->
+        <!--            <div class="stars">-->
+        <!--                <i class="fas fa-star"></i>-->
+        <!--                <i class="fas fa-star"></i>-->
+        <!--                <i class="fas fa-star"></i>-->
+        <!--                <i class="fas fa-star"></i>-->
+        <!--                <i class="far fa-star"></i>-->
+        <!--            </div>-->
+        <!--            <a href="#" class="btn">order now</a>-->
+        <!--        </div>-->
+        <!--        <div class="box">-->
+        <!--            <span class="price"> Rs.250</span>-->
+        <!--            <img src="{% static 'images/p-5.jpg' %}" alt="">-->
+        <!--            <h3>cold drinks</h3>-->
+        <!--            <div class="stars">-->
+        <!--                <i class="fas fa-star"></i>-->
+        <!--                <i class="fas fa-star"></i>-->
+        <!--                <i class="fas fa-star"></i>-->
+        <!--                <i class="fas fa-star"></i>-->
+        <!--                <i class="far fa-star"></i>-->
+        <!--            </div>-->
+        <!--            <a href="#" class="btn">order now</a>-->
+        <!--        </div>-->
+        <!--        <div class="box">-->
+        <!--            <span class="price"> Rs.250</span>-->
+        <!--            <img src="{% static 'images/p-6.jpg' %}" alt="">-->
+        <!--            <h3>cold ice-cream</h3>-->
+        <!--            <div class="stars">-->
+        <!--                <i class="fas fa-star"></i>-->
+        <!--                <i class="fas fa-star"></i>-->
+        <!--                <i class="fas fa-star"></i>-->
+        <!--                <i class="fas fa-star"></i>-->
+        <!--                <i class="far fa-star"></i>-->
+        <!--            </div>-->
+        <!--            <a href="#" class="btn">order now</a>-->
+        <!--        </div>-->
 
     </div>
 
@@ -230,72 +234,90 @@
             <img src="{% static 'images/g-1.jpg' %}" alt="">
             <div class="content">
                 <h3>tasty food</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, ipsum.</p>
-                <a href="#" class="btn">order now</a>
+                <p>If you say that food, especially savoury food, is tasty, you mean that it has a fairly strong and
+                    pleasant flavour which makes it good to eat. Try this tasty dish for supper with a crispy
+                    salad. </p>
+
             </div>
         </div>
         <div class="box">
             <img src="{% static 'images/g-2.jpg' %}" alt="">
             <div class="content">
                 <h3>tasty food</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, ipsum.</p>
-                <a href="#" class="btn">order now</a>
+                <p>If you say that food, especially savoury food, is tasty, you mean that it has a fairly strong and
+                    pleasant flavour which makes it good to eat. Try this tasty dish for supper with a crispy
+                    salad. </p>
+
             </div>
         </div>
         <div class="box">
             <img src="{% static 'images/g-3.jpg' %}" alt="">
             <div class="content">
                 <h3>tasty food</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, ipsum.</p>
-                <a href="#" class="btn">order now</a>
+                <p>If you say that food, especially savoury food, is tasty, you mean that it has a fairly strong and
+                    pleasant flavour which makes it good to eat. Try this tasty dish for supper with a crispy
+                    salad. </p>
+
             </div>
         </div>
         <div class="box">
             <img src="{% static 'images/g-4.jpg' %}" alt="">
             <div class="content">
                 <h3>tasty food</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, ipsum.</p>
-                <a href="#" class="btn">order now</a>
+                <p>If you say that food, especially savoury food, is tasty, you mean that it has a fairly strong and
+                    pleasant flavour which makes it good to eat. Try this tasty dish for supper with a crispy
+                    salad. </p>
+
             </div>
         </div>
         <div class="box">
             <img src="{% static 'images/g-5.jpg' %}" alt="">
             <div class="content">
                 <h3>tasty food</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, ipsum.</p>
-                <a href="#" class="btn">order now</a>
+                <p>If you say that food, especially savoury food, is tasty, you mean that it has a fairly strong and
+                    pleasant flavour which makes it good to eat. Try this tasty dish for supper with a crispy
+                    salad. </p>
+
             </div>
         </div>
         <div class="box">
             <img src="{% static 'images/g-6.jpg' %}" alt="">
             <div class="content">
                 <h3>tasty food</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, ipsum.</p>
-                <a href="#" class="btn">order now</a>
+                <p>If you say that food, especially savoury food, is tasty, you mean that it has a fairly strong and
+                    pleasant flavour which makes it good to eat. Try this tasty dish for supper with a crispy
+                    salad. </p>
+
             </div>
         </div>
         <div class="box">
             <img src="{% static 'images/g-7.jpg' %}" alt="">
             <div class="content">
                 <h3>tasty food</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, ipsum.</p>
-                <a href="#" class="btn">order now</a>
+                <p>If you say that food, especially savoury food, is tasty, you mean that it has a fairly strong and
+                    pleasant flavour which makes it good to eat. Try this tasty dish for supper with a crispy
+                    salad. </p>
+
             </div>
         </div>
         <div class="box">
             <img src="{% static 'images/g-8.jpg' %}" alt="">
             <div class="content">
                 <h3>tasty food</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, ipsum.</p>
-                <a href="#" class="btn">order now</a>
+                <p>If you say that food, especially savoury food, is tasty, you mean that it has a fairly strong and
+                    pleasant flavour which makes it good to eat. Try this tasty dish for supper with a crispy
+                    salad. </p>
+
             </div>
         </div>
         <div class="box">
             <img src="{% static 'images/g-9.jpg' %}" alt="">
             <div class="content">
                 <h3>tasty food</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, ipsum.</p>
-                <a href="#" class="btn">order now</a>
+                <p>If you say that food, especially savoury food, is tasty, you mean that it has a fairly strong and
+                    pleasant flavour which makes it good to eat. Try this tasty dish for supper with a crispy
+                    salad. </p>
+
             </div>
         </div>
 
