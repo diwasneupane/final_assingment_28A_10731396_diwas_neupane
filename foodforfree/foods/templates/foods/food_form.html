@@ -1,26 +1,26 @@
 {% extends 'layout-admin.html' %}
 {% load bootstrap %}
 {% block title %}
-    <title>Add Food</title>
+<title>Add Food</title>
 {% endblock%}
 
 {% block main_content %}
 
-<div class="container">
-<div class="row">
+<div class="container" style="margin-top:150px">
+    <div class="row">
 
-    <div class="col-md-6 offset-md-3">
-        <h1 class="text-center">Add New Food</h1>
-          {% include 'messages.html'%}
-        <div class="card py-2 px-2">
-        <form class="form" action="" method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form_food | bootstrap_horizontal }}
-            <button type="submit" class="btn btn-primary mt-3">Submit</button>
-        </form>
+        <div class="col-md-6 offset-md-3">
+            <h1 class="text-center">Add New Food</h1>
+            {% include 'messages.html'%}
+            <div class="card py-2 px-2">
+                <form class="form" action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form_food | bootstrap_horizontal }}
+                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                </form>
+            </div>
+        </div>
     </div>
-    </div>
-</div>
 </div>
 <script>
     var form_fields = document.getElementsByTagName('input')
@@ -31,6 +31,7 @@
    for(field in form_fields){
    form_fields[field].className += ' my-3'
    }
+
 </script>
 
 {% endblock %}
