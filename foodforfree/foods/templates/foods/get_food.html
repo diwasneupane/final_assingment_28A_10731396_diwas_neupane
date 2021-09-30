@@ -2,6 +2,7 @@
 {% block title %}
 <title>All Foods</title>
 {% endblock%}
+{% load static %}
 
 {% block main_content %}
 <div class="container" style="margin-top:200px;">
@@ -11,7 +12,7 @@
             <h1 class="text-center">All Foods</h1>
             {% include 'messages.html' %}
             <div class="card py-2 px-2">
-                <a class="btn btn-primary btn-sm ms-auto"
+                <a class="btn "
                    href="/foods/food_form"
                 >Add New Food</a>
                 <table class="table-striped">
@@ -29,8 +30,8 @@
                         <td> {{ i.food_price }}</td>
                         <td> {{ i.category.category_name }}</td>
                         <td><img src="/{{i.food_image}}" width="200"></td>
-                        <td><a class="btn btn-primary btn-sm" href="/foods/update_food/{{i.id}}">Edit</a> &nbsp;
-                            <a class="btn btn-danger btn-sm"
+                        <td><a class="btn " href="/foods/update_food/{{i.id}}">Edit</a> &nbsp;
+                            <a class="btn "
                                href="/foods/delete_food/{{i.id}}"
                                onclick="return confirm('Are you sure want to delete this food?')">Delete</a></td>
 
